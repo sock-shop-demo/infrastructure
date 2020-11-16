@@ -42,3 +42,30 @@ resource "github_actions_secret" "produ_cluster_ip" {
   secret_name     = "PRODU_CLUSTER_IP"
   plaintext_value = module.prod.cluster_ip
 }
+
+resource "github_actions_secret" "staging_kubernetes_config_frontend" {
+  repository      = "frontend"
+  secret_name     = "STAGING_KUBERNETES_KUBECONFIG"
+  plaintext_value = module.staging.kubeconfig
+}
+
+
+resource "github_actions_secret" "staging_cluster_ip_frontend" {
+  repository      = "frontend"
+  secret_name     = "STAGING_CLUSTER_IP"
+  plaintext_value = module.staging.cluster_ip
+}
+
+
+resource "github_actions_secret" "produ_kubernetes_config_frontend" {
+  repository      = "frontend"
+  secret_name     = "PRODU_KUBERNETES_KUBECONFIG"
+  plaintext_value = module.prod.kubeconfig
+}
+
+
+resource "github_actions_secret" "produ_cluster_ip_frontend" {
+  repository      = "frontend"
+  secret_name     = "PRODU_CLUSTER_IP"
+  plaintext_value = module.prod.cluster_ip
+}
