@@ -19,7 +19,7 @@ jobs:
       - name: Terraform Init
         id: init
         run: |
-         terraform init \                                                                                                                                                                   19h10m [!]
+         terraform init \
           -backend-config="access_key=${{ secrets.SPACES_KEY }}" \
           -backend-config="secret_key=${{ secrets.SPACES_SECRET_KEY }}" \
           -backend-config="bucket=${{ secrets.SPACES_BUCKET_NAME }}"
