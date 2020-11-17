@@ -14,10 +14,11 @@ jobs:
         uses: hashicorp/setup-terraform@v1
       - name: Terraform Init
         id: init
-        run: terraform init \
-          -backend-config="access_key=${{ secrets.SPACES_KEY }}" \
-          -backend-config="secret_key=${{ secrets.SPACES_SECRET_KEY }}" \
-          -backend-config="bucket=${{ secrets.SPACES_BUCKET_NAME }}"
+        run: |
+          terraform init \
+            -backend-config="access_key=${{ secrets.SPACES_KEY }}" \
+            -backend-config="secret_key=${{ secrets.SPACES_SECRET_KEY }}" \
+            -backend-config="bucket=${{ secrets.SPACES_BUCKET_NAME }}"
       - name: Terraform deploy
         id: deploy
         run: terraform apply -auto-approve
