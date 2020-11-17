@@ -18,7 +18,12 @@ jobs:
         run: terraform fmt -check
       - name: Terraform Init
         id: init
-        run: terraform init
+        run: |
+         terraform init \                                                                                                                                                                   19h10m [!]
+          -backend-config="access_key=${{ secrets.SPACES_KEY }}" \
+          -backend-config="secret_key=${{ secrets.SPACES_SECRET_KEY }}" \
+          -backend-config="bucket=${{ secrets.SPACES_BUCKET_NAME }}"
+
       - name: Terraform plan
         id: plan
         run: terraform plan
